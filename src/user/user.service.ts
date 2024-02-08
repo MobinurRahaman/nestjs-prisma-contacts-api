@@ -19,7 +19,7 @@ export class UserService {
       },
     });
 
-    delete user.hash;
+    delete user.password;
 
     return user;
   }

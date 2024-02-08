@@ -5,20 +5,20 @@ services:
     ports:
       - 5434:5432
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: nest
+      POSTGRES_USER: MobinurRahaman
+      POSTGRES_PASSWORD: Mobinur123
+      POSTGRES_DB: contacts
     networks:
-      - freecodecamp
+      - Md Mobinur Rahaman
   test-db:
     image: postgres:13
     ports:
       - 5435:5432
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: nest
+      POSTGRES_USER: MobinurRahaman
+      POSTGRES_PASSWORD: Mobinur123
+      POSTGRES_DB: contacts
     networks:
-      - freecodecamp
+      - Md Mobinur Rahaman
 networks:
-  freecodecamp:
+  Md Mobinur Rahaman:

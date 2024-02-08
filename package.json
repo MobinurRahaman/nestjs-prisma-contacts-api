@@ -1,6 +1,6 @@
 {
-  "name": "nestjs-api-tutorial",
-  "version": "0.0.1",
+  "name": "nestjs-contacts-api",
+  "version": "1.0.0",
   "description": "",
   "author": "",
   "private": true,
