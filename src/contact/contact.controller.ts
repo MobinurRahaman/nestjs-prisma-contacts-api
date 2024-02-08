@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Delete,
   Get,
   HttpCode,
@@ -28,9 +29,30 @@ export class contactController {
   ) {}
 
   @Get()
-  getContacts(@GetUser('id') userId: number) {
+  getContacts(
+    @GetUser('id') userId: number,
+    @Query(
+      'page',
+      new DefaultValuePipe(1),
+      ParseIntPipe,
+    )
+    page: number,
+    @Query(
+      'pageSize',
+      new DefaultValuePipe(10),
+      ParseIntPipe,
+    )
+    pageSize: number,
+  ) {
+    const limitedPageSize = Math.min(
+      pageSize,
+      50,
+    );
+
     return this.contactService.getContacts(
       userId,
+      page,
+      limitedPageSize,
     );
   }
 

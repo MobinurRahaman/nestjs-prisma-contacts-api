@@ -12,11 +12,23 @@ import {
 export class contactService {
   constructor(private prisma: PrismaService) {}
 
-  getContacts(userId: number) {
+  async getContacts(
+    userId: number,
+    page = 1,
+    pageSize = 10,
+  ) {
+    const limitedPageSize = Math.min(
+      pageSize,
+      50,
+    );
+    const skip = (page - 1) * limitedPageSize;
+
     return this.prisma.contact.findMany({
       where: {
         userId,
       },
+      take: limitedPageSize,
+      skip,
     });
   }
 
