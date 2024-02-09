@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: MobinurRahaman
+      POSTGRES_PASSWORD: Mobinur123
+      POSTGRES_DB: contacts
+    networks:
+      - Md Mobinur Rahaman
+  test-db:
+    image: postgres:13
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: MobinurRahaman
+      POSTGRES_PASSWORD: Mobinur123
+      POSTGRES_DB: contacts
+    networks:
+      - Md Mobinur Rahaman
+networks:
+  Md Mobinur Rahaman:

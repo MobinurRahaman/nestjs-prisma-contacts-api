@@ -1,0 +1,9 @@
+DB_HOST=postgres
+DB_PORT=5432
+DB_NAME=your_database_name
+DB_USER=your_username
+DB_PASSWORD=your_password
+DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@localhost:5432/${DB_NAME}?schema=public
+JWT_SECRET=your_jwt_secret
+MAILGUN_API_KEY=your_mailgun_api_key
+MAILGUN_DOMAIN=your_mailgun_domain

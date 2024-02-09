@@ -1,24 +1,17 @@
-version: '3.8'
+version: '3'
 services:
-  dev-db:
+  postgres:
     image: postgres:13
-    ports:
-      - 5434:5432
     environment:
-      POSTGRES_USER: MobinurRahaman
-      POSTGRES_PASSWORD: Mobinur123
-      POSTGRES_DB: contacts
-    networks:
-      - Md Mobinur Rahaman
-  test-db:
-    image: postgres:13
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+  nestjs-app:
+    build: .
     ports:
-      - 5435:5432
-    environment:
-      POSTGRES_USER: MobinurRahaman
-      POSTGRES_PASSWORD: Mobinur123
-      POSTGRES_DB: contacts
-    networks:
-      - Md Mobinur Rahaman
-networks:
-  Md Mobinur Rahaman:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    env_file:
+      - .env
